@@ -1,0 +1,14 @@
+интеграл от числа ((a)dx)<=>integ(a)dx=a*x+C
+интеграл от ((x^n)dx)<=>integ((x^n)dx)=x^(n+1)/(n+1)+C
+интеграл от (dx/x)<=>integ(dx/x)=ln|x|+C
+интеграл от ((a^x)dx)<=>integ((a^x)dx=a^x/ln(a)+C
+интеграл от ((e^x)dx)<=>integ((e^x)dx=e^x+C
+интеграл от ((sin(x))dx)<=>integ((sin(x)))dx=-cos(x)+C
+интеграл от ((cos(x))dx)<=>integ((cos(x)))dx=sin(x)+C
+интеграл от (dx/cos(x)^2)<=>integ(dx/cos(x)^2)=tg(x)+C
+интеграл от (dx/sin(x)^2)<=>integ(dx/sin(x)^2)=-ctg(x)+C
+интеграл от (dx/(x^2-a^2))<=>integ(dx/(x^2-a^2))=1/(2a)*ln|(x-a)/(x+a)|+C
+интеграл от (dx/(x^2-a^2)^(1/2))<=>integ(dx/(x^2-a^2)^(1/2))=ln|(x+(x-a)^(1/2)|+C
+интеграл от (dx/(x^2+a^2)^(1/2))<=>integ(dx/(x^2+a^2)^(1/2))=ln|(x+(x+a)^(1/2)|+C
+интеграл от (dx/(a^2-x^2)^(1/2))<=>integ(dx/(a^2-x^2)^(1/2))=arcsin(x/a)+C
+интеграл от (dx/(a^2+x^2))<=>integ(dx/(a^2+x^2))=(1/a)*arctg(x/a)+C
