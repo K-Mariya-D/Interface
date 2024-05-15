@@ -5,6 +5,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
+using MathTutorInterface;
+//using System.Reflection.Emit;
+using System.Windows.Forms;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms.VisualStyles;
 
 namespace MathTutor
 {
@@ -18,11 +24,12 @@ namespace MathTutor
         /// <summary>
         /// Запускает тест
         /// </summary>
-        public void Start()
+        public void Start(string theme)
         {
             
             void Test()
             {
+                ///Заполнение банка формул по теме тригонометрия из файла
                 var formula_bank = new Dictionary<string, Formula[]>();
 
                 string[] lines1 = File.ReadAllLines("тригонометрия.txt");
@@ -34,6 +41,7 @@ namespace MathTutor
                 }
                 formula_bank["тригонометрия"] = formulas1;
 
+                ///Заполнение банка формул по теме производные из файла
                 string[] lines2 = File.ReadAllLines("таблица производных.txt");
                 Formula[] formulas2 = new Formula[lines2.Count()];
                 for (int i = 0; i < lines2.Count(); i++)
@@ -43,6 +51,7 @@ namespace MathTutor
                 }
                 formula_bank["таблица производных"] = formulas2;
 
+                ///Заполнение банка формул по теме  интегралы из файла
                 string[] lines3 = File.ReadAllLines("таблица интегралов.txt");
                 Formula[] formulas3 = new Formula[lines3.Count()];
                 for (int i = 0; i < lines3.Count(); i++)
@@ -52,14 +61,11 @@ namespace MathTutor
                 }
                 formula_bank["таблица интегралов"] = formulas3;
 
-                Console.WriteLine("Введите номер одной из тем списка, по которому хотите пройти тест:");
-                Console.WriteLine("1.тригонометрия");
-                Console.WriteLine("2.таблица производных");
-                Console.WriteLine("3.таблица интегралов");
+                
                 var formulas_lst = new List<Formula>();
                 
-                var mistakescnt = new Dictionary<Formula, int>();
-                string theme = Console.ReadLine();
+                var mistakescnt = new Dictionary<Formula, int>(); //Кол-во ошибок по каждой формуле
+
                 if (theme == "1")
                     foreach (var formula in formulas1)
                     {
@@ -77,7 +83,7 @@ namespace MathTutor
                     {
                         formulas_lst.Add(formula);
                         mistakescnt[formula] = 0;
-                    }
+                    }/*
                 void Test1()
                 {
                     if (formulas_lst.Count == 0)
@@ -90,8 +96,8 @@ namespace MathTutor
                     Console.ReadLine();
                     Console.WriteLine(rand_formula.Data);
                     Console.WriteLine("Введите '1', если правильно написали формулу, иначе введите '0'");
-                    int res = int.Parse(Console.ReadLine());
-                    if (res == 0)
+                    int ress = int.Parse(Console.ReadLine());
+                    if (ress == 0)
                         mistakescnt[rand_formula] += 1;
                     else
                         formulas_lst.Remove(rand_formula);
@@ -123,7 +129,7 @@ namespace MathTutor
                     Test();
                 else
                     return;
-                
+                */
             }
             Test();
         }

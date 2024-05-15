@@ -42,6 +42,7 @@
             this.Enter.Size = new System.Drawing.Size(31, 29);
             this.Enter.TabIndex = 2;
             this.Enter.Text = "X";
+            this.Enter.Click += new System.EventHandler(this.Enter_Click);
             // 
             // PartName
             // 
@@ -66,6 +67,7 @@
             this.Controls.Add(this.Enter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Train";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

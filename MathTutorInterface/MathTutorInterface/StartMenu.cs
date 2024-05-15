@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathTutor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,8 @@ namespace MathTutorInterface
         /// <param name="e"></param>
         private void Start_Click(object sender, EventArgs e)
         {
+            var train = new TheoryTrainer();
+
             this.Hide();
             Train NewForm = new Train();
             NewForm.Show();
