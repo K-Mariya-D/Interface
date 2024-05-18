@@ -1,6 +1,6 @@
 ﻿namespace MathTutorInterface
 {
-    partial class Train
+    partial class ChooseTrain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,6 @@
         {
             this.Enter = new System.Windows.Forms.Label();
             this.PartName = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Enter
@@ -43,7 +40,7 @@
             this.Enter.Location = new System.Drawing.Point(957, 9);
             this.Enter.Name = "Enter";
             this.Enter.Size = new System.Drawing.Size(31, 29);
-            this.Enter.TabIndex = 3;
+            this.Enter.TabIndex = 2;
             this.Enter.Text = "X";
             this.Enter.Click += new System.EventHandler(this.Enter_Click);
             // 
@@ -56,40 +53,9 @@
             this.PartName.Location = new System.Drawing.Point(311, 32);
             this.PartName.Name = "PartName";
             this.PartName.Size = new System.Drawing.Size(363, 45);
-            this.PartName.TabIndex = 4;
+            this.PartName.TabIndex = 3;
             this.PartName.Text = "Зазубривание формул";
             this.PartName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(198, 215);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(604, 113);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(168, 362);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(322, 54);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Я написал формулу правильно!";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Palatino Linotype", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(510, 362);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(322, 54);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Я написал формулу неправильно :(";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Train
             // 
@@ -97,15 +63,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.PartName);
             this.Controls.Add(this.Enter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Train";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Train";
+            this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +78,5 @@
 
         private System.Windows.Forms.Label Enter;
         private System.Windows.Forms.Label PartName;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

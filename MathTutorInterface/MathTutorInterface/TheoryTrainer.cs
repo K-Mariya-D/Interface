@@ -17,8 +17,12 @@ namespace MathTutor
     public class TheoryTrainer
     {
         public static Dictionary<string, List<Dictionary<Formula, int>>> statistics;
+        private List<Formula> formulas_lst; //Формулы, используемые в тренировке
+        private Dictionary<Formula, int> mistakescnt; //Кол-во ошибок по каждой формуле
         public TheoryTrainer()
         {
+            formulas_lst = new List<Formula>();
+            mistakescnt = new Dictionary<Formula, int>();
             statistics = new Dictionary<string, List<Dictionary<Formula, int>>>();
         }
         /// <summary>
@@ -61,11 +65,6 @@ namespace MathTutor
                 }
                 formula_bank["таблица интегралов"] = formulas3;
 
-                
-                var formulas_lst = new List<Formula>();
-                
-                var mistakescnt = new Dictionary<Formula, int>(); //Кол-во ошибок по каждой формуле
-
                 if (theme == "1")
                     foreach (var formula in formulas1)
                     {
@@ -83,27 +82,9 @@ namespace MathTutor
                     {
                         formulas_lst.Add(formula);
                         mistakescnt[formula] = 0;
-                    }/*
-                void Test1()
-                {
-                    if (formulas_lst.Count == 0)
-                        return;
-                    var r = new Random();
-                    var rnd = r.Next(1, formulas_lst.Count);
-                    var rand_formula = formulas_lst.Take(rnd).Last();
-                    Console.WriteLine(rand_formula.Name);
-                    Console.WriteLine("Нажмите enter для вывода правильной формулы");
-                    Console.ReadLine();
-                    Console.WriteLine(rand_formula.Data);
-                    Console.WriteLine("Введите '1', если правильно написали формулу, иначе введите '0'");
-                    int ress = int.Parse(Console.ReadLine());
-                    if (ress == 0)
-                        mistakescnt[rand_formula] += 1;
-                    else
-                        formulas_lst.Remove(rand_formula);
-                    Test1();
-                }
-                Test1();
+                    }
+
+                //Добавление ошибочных ответов в статистику 
                 if (theme == "1")
                 {
                     if (!statistics.ContainsKey("тригонометрия"))
@@ -122,16 +103,59 @@ namespace MathTutor
                         statistics["таблица интегралов"] = new List<Dictionary<Formula, int>>();
                     statistics["таблица интегралов"].Add(mistakescnt);
                 }
-
+                /*
                 Console.WriteLine("Введите '1', если желаете пройти тест ещё раз, иначе введите '0'");
                 int res = int.Parse(Console.ReadLine());
                 if (res == 1)
                     Test();
                 else
-                    return;
-                */
+                    return; */
             }
             Test();
+        }
+        /// <summary>
+        /// Возвращает один случайный вопрос из списка формул
+        /// </summary>
+        /// <returns></returns>
+        public Formula TakeQuestion()
+        {
+            if (formulas_lst.Count == 0)
+                return null;
+
+            var r = new Random();
+            var rnd = r.Next(1, formulas_lst.Count);
+            var rand_formula = formulas_lst.Take(rnd).Last();
+            
+            return rand_formula;
+                 
+                /*
+                 Console.WriteLine("Нажмите enter для вывода правильной формулы");
+                 Console.ReadLine();
+                 Console.WriteLine(rand_formula.Data);
+                 Console.WriteLine("Введите '1', если правильно написали формулу, иначе введите '0'");
+                 int ress = int.Parse(Console.ReadLine());
+                 if (ress == 0)
+                     mistakescnt[rand_formula] += 1;
+                 else
+                     formulas_lst.Remove(rand_formula);
+                 Test1();
+                */
+        }
+        /// <summary>
+        /// Проверка ответа по формуле 
+        /// </summary>
+        /// <param name="rand_formula"></param>
+        /// <param name="res"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void CheckAnswer(Formula rand_formula, int res)
+        {
+            if (rand_formula == null)
+                throw new ArgumentNullException();
+
+            if (res == 0)
+                mistakescnt[rand_formula] += 1;
+            else
+                formulas_lst.Remove(rand_formula);
         }
         /// <summary>
         /// Выводит на экран статистику ответов за указанное кол-во попыток

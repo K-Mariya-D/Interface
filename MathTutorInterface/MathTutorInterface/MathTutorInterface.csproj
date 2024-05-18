@@ -52,21 +52,27 @@
     <Compile Include="StartMenu.Designer.cs">
       <DependentUpon>StartMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseTrain.Designer.cs">
+      <DependentUpon>ChooseTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formula.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheoryTrainer.cs" />
     <Compile Include="Train.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Train.Designer.cs">
       <DependentUpon>Train.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formula.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TheoryTrainer.cs" />
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Train.resx">
-      <DependentUpon>Train.cs</DependentUpon>
+    <EmbeddedResource Include="ChooseTrain.resx">
+      <DependentUpon>ChooseTrain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Train.resx">
+      <DependentUpon>Train.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
