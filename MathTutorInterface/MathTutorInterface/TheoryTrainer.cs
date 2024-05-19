@@ -122,7 +122,7 @@ namespace MathTutor
         /// </summary>
         /// <param name="theme"></param>
         /// <param name="attemptsCnt"></param>
-        public void ShowStatistics(string theme, int attemptsCnt)
+        public List<Dictionary<Formula, int>> ShowStatistics(string theme, int attemptsCnt)
         {
             //Добавление ошибочных ответов в статистику 
             if (theme == "1")
@@ -130,6 +130,7 @@ namespace MathTutor
                 if (!statistics.ContainsKey("тригонометрия"))
                     statistics["тригонометрия"] = new List<Dictionary<Formula, int>>();
                 statistics["тригонометрия"].Add(mistakescnt);
+                theme = "тригонометрия";
             }
             else if (theme == "2")
             {
@@ -143,17 +144,19 @@ namespace MathTutor
                     statistics["таблица интегралов"] = new List<Dictionary<Formula, int>>();
                 statistics["таблица интегралов"].Add(mistakescnt);
             }
-            //Вывод статистики на экран
-            Console.WriteLine(theme);
+            var res = new List<Dictionary<Formula, int>>();
+            var Dict = new Dictionary<Formula, int>();
+
             var lastAttempts = statistics[theme].Skip(statistics[theme].Count-attemptsCnt);
             foreach (var attempt in lastAttempts)
             {
                 foreach (var formulaa in attempt)
                 {
-                    Console.WriteLine($"{formulaa.Key} >>> кол-во ошибок >>> {formulaa.Value}");
+                    Dict.Add(formulaa.Key, formulaa.Value);
                 }
-                Console.WriteLine();
+                res.Add(Dict);
             }
+            return res;
         }
     }
 }
