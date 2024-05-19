@@ -127,22 +127,24 @@ namespace MathTutor
             //Добавление ошибочных ответов в статистику 
             if (theme == "1")
             {
-                if (!statistics.ContainsKey("тригонометрия"))
-                    statistics["тригонометрия"] = new List<Dictionary<Formula, int>>();
-                statistics["тригонометрия"].Add(mistakescnt);
                 theme = "тригонометрия";
+                if (!statistics.ContainsKey(theme))
+                    statistics[theme] = new List<Dictionary<Formula, int>>();
+                statistics[theme].Add(mistakescnt);
             }
             else if (theme == "2")
             {
-                if (!statistics.ContainsKey("таблица производных"))
-                    statistics["таблица производных"] = new List<Dictionary<Formula, int>>();
-                statistics["таблица производных"].Add(mistakescnt);
+                theme = "таблица производных";
+                if (!statistics.ContainsKey(theme))
+                    statistics[theme] = new List<Dictionary<Formula, int>>();
+                statistics[theme].Add(mistakescnt);
             }
             else if (theme == "3")
             {
-                if (!statistics.ContainsKey("таблица интегралов"))
-                    statistics["таблица интегралов"] = new List<Dictionary<Formula, int>>();
-                statistics["таблица интегралов"].Add(mistakescnt);
+                theme = "таблица интегралов";
+                if (!statistics.ContainsKey(theme))
+                    statistics[theme] = new List<Dictionary<Formula, int>>();
+                statistics[theme].Add(mistakescnt);
             }
             var res = new List<Dictionary<Formula, int>>();
             var Dict = new Dictionary<Formula, int>();

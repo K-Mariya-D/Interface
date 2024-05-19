@@ -97,5 +97,16 @@ namespace MathTutorInterface
         {
             Application.Exit();
         }
+        /// <summary>
+        /// Переход на главную страниц
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnMainScreen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartMenu Form = new StartMenu();
+            Form.Show();
+        }
     }
 }

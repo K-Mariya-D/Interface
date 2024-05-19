@@ -30,6 +30,7 @@
         {
             this.Enter = new System.Windows.Forms.Label();
             this.PartName = new System.Windows.Forms.Label();
+            this.OnMainScreen = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Enter
@@ -57,12 +58,25 @@
             this.PartName.Text = "Зазубривание формул";
             this.PartName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // OnMainScreen
+            // 
+            this.OnMainScreen.AutoSize = true;
+            this.OnMainScreen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OnMainScreen.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OnMainScreen.Location = new System.Drawing.Point(12, 9);
+            this.OnMainScreen.Name = "OnMainScreen";
+            this.OnMainScreen.Size = new System.Drawing.Size(126, 23);
+            this.OnMainScreen.TabIndex = 6;
+            this.OnMainScreen.Text = "<<На главную";
+            this.OnMainScreen.Click += new System.EventHandler(this.OnMainScreen_Click);
+            // 
             // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 450);
+            this.Controls.Add(this.OnMainScreen);
             this.Controls.Add(this.PartName);
             this.Controls.Add(this.Enter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -78,5 +92,6 @@
 
         private System.Windows.Forms.Label Enter;
         private System.Windows.Forms.Label PartName;
+        private System.Windows.Forms.Label OnMainScreen;
     }
 }

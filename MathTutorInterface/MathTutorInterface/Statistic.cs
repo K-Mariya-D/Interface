@@ -130,7 +130,7 @@ namespace MathTutorInterface
                 button1.Click -= button1_Click;
                 button2.Click -= button2_Click;
                 button3.Click -= button3_Click;
-                ChooseCount("1", train);
+                ChooseCount("2", train);
             };
             void button3_Click(object sender, EventArgs e)
             {
@@ -141,9 +141,14 @@ namespace MathTutorInterface
                 button1.Click -= button1_Click;
                 button2.Click -= button2_Click;
                 button3.Click -= button3_Click;
-                ChooseCount("1", train);
+                ChooseCount("3", train);
             };
         }
+        /// <summary>
+        /// Выбор числа учитываемых попыток
+        /// </summary>
+        /// <param name="theme"></param>
+        /// <param name="train"></param>
         public void ChooseCount(string theme, TheoryTrainer train)
         {
             Label label = new Label();
@@ -156,7 +161,7 @@ namespace MathTutorInterface
             TextBox textBox = new TextBox();
             textBox.Font = new Font("Palatino Linotype", 12, FontStyle.Regular);
             textBox.Size = new Size(604, 20);
-            textBox.Location = new Point((Width - textBox.Width) / 2, 140);
+            textBox.Location = new Point((Width - textBox.Width) / 2, 160);
             Controls.Add(textBox);
             textBox.TextChanged += textBox_TextChanged;
 
@@ -183,7 +188,7 @@ namespace MathTutorInterface
             if (!int.TryParse(count, out var c) || int.Parse(count) < 0)
                 textBox.Text = "Ой, вы ввели неправильное кол-во учитываемых попыток! Мы не можем показать вам статистику ^ - ^";
 
-            List<Dictionary<Formula, int>> stat = train.ShowStatistics(theme, 1);
+            List<Dictionary<Formula, int>> stat = train.ShowStatistics(theme, int.Parse(count));
             foreach (var attempts in stat)
             {
                 foreach (var item in attempts)
@@ -202,6 +207,17 @@ namespace MathTutorInterface
         private void Enter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        /// <summary>
+        /// Возврат к главной странице
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnMainScreen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartMenu Form = new StartMenu();
+            Form.Show();
         }
     }
 }
