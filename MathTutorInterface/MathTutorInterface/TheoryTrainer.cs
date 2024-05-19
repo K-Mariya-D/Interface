@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using MathTutorInterface;
-//using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Drawing;
 using static System.Net.Mime.MediaTypeNames;
@@ -84,32 +83,6 @@ namespace MathTutor
                         mistakescnt[formula] = 0;
                     }
 
-                //Добавление ошибочных ответов в статистику 
-                if (theme == "1")
-                {
-                    if (!statistics.ContainsKey("тригонометрия"))
-                        statistics["тригонометрия"] = new List<Dictionary<Formula, int>>();
-                    statistics["тригонометрия"].Add(mistakescnt);
-                }
-                else if (theme == "2")
-                {
-                    if (!statistics.ContainsKey("таблица производных"))
-                        statistics["таблица производных"] = new List<Dictionary<Formula, int>>();
-                    statistics["таблица производных"].Add(mistakescnt);
-                }
-                else if (theme == "3")
-                {
-                    if (!statistics.ContainsKey("таблица интегралов"))
-                        statistics["таблица интегралов"] = new List<Dictionary<Formula, int>>();
-                    statistics["таблица интегралов"].Add(mistakescnt);
-                }
-                /*
-                Console.WriteLine("Введите '1', если желаете пройти тест ещё раз, иначе введите '0'");
-                int res = int.Parse(Console.ReadLine());
-                if (res == 1)
-                    Test();
-                else
-                    return; */
             }
             Test();
         }
@@ -119,27 +92,14 @@ namespace MathTutor
         /// <returns></returns>
         public Formula TakeQuestion()
         {
-            if (formulas_lst.Count == 0)
+            if (formulas_lst.Count() == 0)
                 return null;
 
             var r = new Random();
-            var rnd = r.Next(1, formulas_lst.Count);
+            var rnd = r.Next(1, formulas_lst.Count() + 1);
             var rand_formula = formulas_lst.Take(rnd).Last();
             
             return rand_formula;
-                 
-                /*
-                 Console.WriteLine("Нажмите enter для вывода правильной формулы");
-                 Console.ReadLine();
-                 Console.WriteLine(rand_formula.Data);
-                 Console.WriteLine("Введите '1', если правильно написали формулу, иначе введите '0'");
-                 int ress = int.Parse(Console.ReadLine());
-                 if (ress == 0)
-                     mistakescnt[rand_formula] += 1;
-                 else
-                     formulas_lst.Remove(rand_formula);
-                 Test1();
-                */
         }
         /// <summary>
         /// Проверка ответа по формуле 
@@ -164,6 +124,26 @@ namespace MathTutor
         /// <param name="attemptsCnt"></param>
         public void ShowStatistics(string theme, int attemptsCnt)
         {
+            //Добавление ошибочных ответов в статистику 
+            if (theme == "1")
+            {
+                if (!statistics.ContainsKey("тригонометрия"))
+                    statistics["тригонометрия"] = new List<Dictionary<Formula, int>>();
+                statistics["тригонометрия"].Add(mistakescnt);
+            }
+            else if (theme == "2")
+            {
+                if (!statistics.ContainsKey("таблица производных"))
+                    statistics["таблица производных"] = new List<Dictionary<Formula, int>>();
+                statistics["таблица производных"].Add(mistakescnt);
+            }
+            else if (theme == "3")
+            {
+                if (!statistics.ContainsKey("таблица интегралов"))
+                    statistics["таблица интегралов"] = new List<Dictionary<Formula, int>>();
+                statistics["таблица интегралов"].Add(mistakescnt);
+            }
+            //Вывод статистики на экран
             Console.WriteLine(theme);
             var lastAttempts = statistics[theme].Skip(statistics[theme].Count-attemptsCnt);
             foreach (var attempt in lastAttempts)

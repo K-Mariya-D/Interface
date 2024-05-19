@@ -14,17 +14,18 @@ namespace MathTutorInterface
 {
     public partial class ChooseTrain : Form
     {
-        public ChooseTrain()
+        public ChooseTrain(TheoryTrainer train)
         {
             InitializeComponent();
 
-            ChooseKindOfTrain();
+            ChooseKindOfTrain(train);
+
         }
         /// <summary>
         /// Выбор темы для тренировки
         /// </summary>
         /// <param name="train"></param>
-        public void ChooseKindOfTrain()
+        public void ChooseKindOfTrain(TheoryTrainer train)
         {
 
             Label label = new Label();
@@ -64,27 +65,28 @@ namespace MathTutorInterface
             button1.Click += button1_Click;
             button2.Click += button2_Click;
             button3.Click += button3_Click;
+
+            //По нажатию кнопкок переходит на форму тренировки и передаёт туда тему тренировки
+            void button1_Click(object sender, EventArgs e)
+            {
+                this.Hide();
+                Train newForm = new Train("1", train);
+                newForm.Show();
+            }
+            void button2_Click(object sender, EventArgs e)
+            {
+                this.Hide();
+                Train newForm = new Train("2", train);
+                newForm.Show();
+            }
+            void button3_Click(object sender, EventArgs e)
+            {
+                this.Hide();
+                Train newForm = new Train("3", train);
+                newForm.Show();
+            }
         }
 
-        //По нажатию кнопкок переходит на форму тренировки и передаёт туда тему тренировки
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Train newForm = new Train("1");
-            newForm.Show();
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Train newForm = new Train("2");
-            newForm.Show();
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Train newForm = new Train("3");
-            newForm.Show();
-        }
 
         /// <summary>
         /// Закрытие формы

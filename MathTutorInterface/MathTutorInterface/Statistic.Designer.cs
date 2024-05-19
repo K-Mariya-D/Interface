@@ -1,6 +1,6 @@
 ﻿namespace MathTutorInterface
 {
-    partial class Train
+    partial class Statistic
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.Enter = new System.Windows.Forms.Label();
             this.PartName = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // Enter
@@ -41,7 +40,7 @@
             this.Enter.Location = new System.Drawing.Point(957, 9);
             this.Enter.Name = "Enter";
             this.Enter.Size = new System.Drawing.Size(31, 29);
-            this.Enter.TabIndex = 3;
+            this.Enter.TabIndex = 4;
             this.Enter.Text = "X";
             this.Enter.Click += new System.EventHandler(this.Enter_Click);
             // 
@@ -54,33 +53,22 @@
             this.PartName.Location = new System.Drawing.Point(311, 32);
             this.PartName.Name = "PartName";
             this.PartName.Size = new System.Drawing.Size(363, 45);
-            this.PartName.TabIndex = 4;
+            this.PartName.TabIndex = 5;
             this.PartName.Text = "Зазубривание формул";
             this.PartName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(198, 215);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(604, 113);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
-            // 
-            // Train
+            // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 450);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.PartName);
             this.Controls.Add(this.Enter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Train";
+            this.Name = "Statistic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Train";
+            this.Text = "Statistic";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +78,5 @@
 
         private System.Windows.Forms.Label Enter;
         private System.Windows.Forms.Label PartName;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

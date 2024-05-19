@@ -43,8 +43,9 @@ namespace MathTutorInterface
         /// <param name="e"></param>
         private void Start_Click(object sender, EventArgs e)
         {
+            var train = new TheoryTrainer();
             this.Hide();
-            ChooseTrain NewForm = new ChooseTrain();
+            ChooseTrain NewForm = new ChooseTrain(train);
             NewForm.Show();
         }
     }
